@@ -45,6 +45,8 @@ import NewsAnnouncements from "./pages/NewsAnnouncements";
 import NewsCompanyBrochure from "./pages/NewsCompanyBrochure";
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
+import logo from '/lovable-uploads/logo.png';
+import heroVideo from '/lovable-uploads/20250617_1947_Cinematic Petrochemical Dusk_simple_compose_01jxyr00rdf8crrx79e0g4pw8p.mp4';
 
 const queryClient = new QueryClient();
 
