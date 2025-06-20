@@ -54,7 +54,7 @@ const App = () => (
       <LanguageProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/best-engineers-proposal-website">
           <Routes>
             <Route path="/" element={<Index />} />
 
