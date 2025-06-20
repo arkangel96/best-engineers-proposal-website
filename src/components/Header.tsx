@@ -71,6 +71,11 @@ const Header: React.FC<HeaderProps> = ({ darkOnLight = false }) => {
         { title: 'Welfare Policy', href: '/recruitment-welfare-policy' },
         { title: 'Recruitment Pool Registration', href: '/recruitment-recruitment-pool-registration' }
       ]
+    },
+    {
+      title: 'CONTACT',
+      href: '/contact',
+      subItems: []
     }
   ];
 
@@ -82,121 +87,106 @@ const Header: React.FC<HeaderProps> = ({ darkOnLight = false }) => {
   };
 
   return (
-    <>
-      {/* Main Navigation Bar */}
-      <header className="relative z-50 w-full" style={{ background: 'transparent', boxShadow: 'none', border: 'none' }}>
-        <div className="w-full bg-transparent px-8"> {/* Removed max-width constraint, increased padding */}
+    <header className={`sticky top-0 z-50 w-full transition-colors duration-300 ${darkOnLight ? 'bg-white shadow-sm' : 'bg-black/25 backdrop-blur-sm'}`}>
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-24">
 
-          <div className="flex justify-center items-center relative bg-transparent"> {/* Changed back to justify-center */}
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center flex-1 justify-center bg-transparent" style={{ background: 'transparent' }}> {/* Changed back to justify-center */}
-              <div className="flex items-center justify-center w-full bg-transparent space-x-2"> {/* Increased space-x-2 for better spacing */}
-                {menuItems.map((item, index) => (
-                  <div
-                    key={item.title}
-                    className="relative bg-transparent"
-                    onMouseEnter={() => setActiveDropdown(item.title)}
-                    onMouseLeave={() => setActiveDropdown(null)}
-                  >
-                    <Link
-                      to={item.href}
-                      className={`flex items-center space-x-1 px-8 py-5 font-extrabold transition-colors duration-200 border-r border-transparent
-                        ${darkOnLight
-                          ? isActivePath(item.href)
-                            ? 'text-[#0074c1] underline underline-offset-8 decoration-2'
-                            : 'text-[#222] hover:text-blue-700 hover:bg-gray-100'
-                          : isActivePath(item.href)
-                            ? 'text-[#0074c1]'
-                            : 'text-white hover:text-blue-200'
-                        }
-                        ${index === menuItems.length - 1 ? 'border-r-0' : ''}
-                      `}
-                      style={{
-                        fontFamily: 'Open Sans, Arial, sans-serif',
-                        fontSize: darkOnLight ? '16px' : '13px',
-                        fontWeight: 700,
-                        letterSpacing: '0.04em',
-                        textShadow: darkOnLight ? 'none' : '0 2px 8px rgba(0,0,0,0.45), 0 1px 2px rgba(0,0,0,0.25)',
-                        background: 'transparent',
-                        textTransform: 'uppercase',
-                      }}
-                    >
-                      <span className="uppercase tracking-wider">{item.title}</span>
-                      {item.subItems.length > 0 && <ChevronDown className="w-3 h-3" />}
-                    </Link>
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link to="/">
+              <img className="h-[7rem] w-auto" src="/lovable-uploads/logo.png" alt="Company Logo" style={{ transform: 'translateY(10%)' }} />
+            </Link>
+          </div>
 
-                    {item.subItems.length > 0 && activeDropdown === item.title && (
-                      <div className="absolute top-full left-0 mt-0 w-64 rounded-b-md shadow-lg border border-gray-200 py-2 z-50" style={{ background: 'rgba(20, 28, 38, 0.85)' }}>
-                        {item.subItems.map((subItem) => (
-                          <Link
-                            key={subItem.title}
-                            to={subItem.href}
-                            className={`block px-4 py-2 text-sm transition-colors duration-200 ${location.pathname === subItem.href
-                              ? 'text-[#1e5aa8] border-l-4 border-[#1e5aa8] bg-transparent'
-                              : 'text-white hover:text-[#1e5aa8] bg-transparent'
-                              }`}
-                            style={{ fontFamily: 'Open Sans, Arial, sans-serif', textShadow: 'none' }}
-                          >
-                            {subItem.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-1">
+            {menuItems.map((item) => (
+              <div
+                key={item.title}
+                className="relative"
+                onMouseEnter={() => setActiveDropdown(item.title)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <Link
+                  to={item.href}
+                  className={`flex items-center px-3 py-2 rounded-md text-sm font-bold transition-colors duration-200
+                    ${darkOnLight
+                      ? isActivePath(item.href) ? 'text-[#0074c1]' : 'text-gray-700 hover:bg-gray-100'
+                      : isActivePath(item.href) ? 'text-blue-300' : 'text-white hover:bg-white/10'
+                    }
+                  `}
+                  style={{
+                    letterSpacing: '0.04em',
+                    textShadow: darkOnLight ? 'none' : '0 1px 4px rgba(0,0,0,0.5)',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  <span>{item.title}</span>
+                  {item.subItems.length > 0 && <ChevronDown className="w-4 h-4 ml-1" />}
+                </Link>
+
+                {item.subItems.length > 0 && activeDropdown === item.title && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1 z-50">
+                    {item.subItems.map((subItem) => (
+                      <Link
+                        key={subItem.title}
+                        to={subItem.href}
+                        className={`block px-4 py-2 text-sm transition-colors duration-200 text-gray-700 hover:bg-gray-100 ${location.pathname === subItem.href ? 'font-bold text-[#0074c1]' : ''}`}
+                      >
+                        {subItem.title}
+                      </Link>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
-            </nav>
-            {/* Mobile menu button */}
+            ))}
+          </nav>
+
+          {/* Mobile menu button */}
+          <div className="lg:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:bg-gray-100 transition-colors duration-200 mr-4 absolute right-0"
+              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200 ${darkOnLight ? 'text-gray-600 hover:bg-gray-100' : 'text-white hover:bg-white/10'}`}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="lg:hidden bg-transparent border-t border-gray-300">
-              <div className="px-2 pt-2 pb-3 space-y-1">
-                {menuItems.map((item) => (
-                  <div key={item.title}>
-                    <Link
-                      to={item.href}
-                      className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${isActivePath(item.href)
-                        ? 'text-white bg-transparent'
-                        : 'text-white hover:text-blue-200 bg-transparent'
-                        }`}
-                      style={{ fontFamily: 'Arial, sans-serif', textShadow: '0 2px 8px rgba(0,0,0,0.45)' }}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <span className="uppercase tracking-wide">{item.title}</span>
-                    </Link>
-                    {item.subItems.length > 0 && (
-                      <div className="ml-4 mt-1 space-y-1">
-                        {item.subItems.map((subItem) => (
-                          <Link
-                            key={subItem.title}
-                            to={subItem.href}
-                            className={`block px-3 py-2 rounded-md text-sm transition-colors duration-200 ${location.pathname === subItem.href
-                              ? 'text-white bg-transparent'
-                              : 'text-white hover:text-blue-200 bg-transparent'
-                              }`}
-                            style={{ fontFamily: 'Arial, sans-serif', textShadow: '0 2px 8px rgba(0,0,0,0.45)' }}
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {subItem.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
-      </header>
-    </>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className={`lg:hidden absolute top-full left-0 w-full ${darkOnLight ? 'bg-white shadow-lg' : 'bg-gray-900/95'}`}>
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {menuItems.map((item) => (
+              <div key={item.title}>
+                <Link
+                  to={item.href}
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${darkOnLight ? 'text-gray-700' : 'text-white'} ${isActivePath(item.href) ? (darkOnLight ? 'bg-gray-100' : 'bg-white/10') : ''}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.title}
+                </Link>
+                {item.subItems.length > 0 && (
+                  <div className="ml-4 mt-1 space-y-1">
+                    {item.subItems.map((subItem) => (
+                      <Link
+                        key={subItem.title}
+                        to={subItem.href}
+                        className={`block px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${darkOnLight ? 'text-gray-600' : 'text-gray-300'} ${location.pathname === subItem.href ? 'font-bold' : ''}`}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {subItem.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
   );
 };
 

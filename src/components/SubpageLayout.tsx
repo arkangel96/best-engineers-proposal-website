@@ -18,9 +18,9 @@ const SubpageLayout: React.FC<SubpageLayoutProps> = ({
   breadcrumbItems
 }) => {
   return (
-    <div className="min-h-screen" style={{ fontFamily: 'Arial, sans-serif', background: 'transparent' }}>
-      <Header />
-      <main>
+    <div className="min-h-screen flex flex-col" style={{ fontFamily: 'Arial, sans-serif' }}>
+      <Header darkOnLight={true} />
+      <main className="flex-grow">
         <div className="max-w-7xl mx-auto">
           <div className="flex">
             <Sidebar items={sidebarItems} title={sidebarTitle} />

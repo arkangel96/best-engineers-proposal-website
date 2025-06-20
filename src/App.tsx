@@ -44,6 +44,7 @@ import News from "./pages/News";
 import NewsAnnouncements from "./pages/NewsAnnouncements";
 import NewsCompanyBrochure from "./pages/NewsCompanyBrochure";
 import NotFound from "./pages/NotFound";
+import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
@@ -56,7 +57,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
-            
+
             {/* About Us Routes */}
             <Route path="/about" element={<About />} />
             <Route path="/about-overview" element={<AboutOverview />} />
@@ -65,7 +66,7 @@ const App = () => (
             <Route path="/about-history" element={<AboutHistory />} />
             <Route path="/about-business-permits" element={<AboutBusinessPermits />} />
             <Route path="/about-location" element={<AboutLocation />} />
-            
+
             {/* Key Services Routes */}
             <Route path="/key-services" element={<KeyServices />} />
             <Route path="/key-services-engineering" element={<KeyServicesEngineering />} />
@@ -74,20 +75,20 @@ const App = () => (
             <Route path="/key-services-commissioning" element={<KeyServicesCommissioning />} />
             <Route path="/key-services-project-management" element={<KeyServicesProjectManagement />} />
             <Route path="/key-services-technical-consulting" element={<KeyServicesTechnicalConsulting />} />
-            
+
             {/* Businesses Routes */}
             <Route path="/businesses" element={<Businesses />} />
             <Route path="/businesses-petrochemical" element={<BusinessesPetrochemical />} />
             <Route path="/businesses-refinery" element={<BusinessesRefinery />} />
             <Route path="/businesses-power-generation" element={<BusinessesPowerGeneration />} />
-            
+
             {/* Core Technologies Routes */}
             <Route path="/core-technologies" element={<CoreTechnologies />} />
             <Route path="/core-technologies-flare-stack-fabrication" element={<CoreTechnologiesFlareStack />} />
             <Route path="/core-technologies-h2-facilities-production" element={<CoreTechnologiesH2Facilities />} />
             <Route path="/core-technologies-co2-purification" element={<CoreTechnologiesCO2Purification />} />
             <Route path="/core-technologies-patents" element={<CoreTechnologiesPatents />} />
-            
+
             {/* Sustainability Routes */}
             <Route path="/sustainability" element={<Sustainability />} />
             <Route path="/sustainability-quality-management" element={<SustainabilityQualityManagement />} />
@@ -97,18 +98,21 @@ const App = () => (
             <Route path="/sustainability-ethics-compliance-report-center" element={<SustainabilityEthicsComplianceReportCenter />} />
             <Route path="/sustainability-security-policy" element={<SustainabilitySecurityPolicy />} />
             <Route path="/sustainability-new-business-partner-registration" element={<SustainabilityNewBusinessPartnerRegistration />} />
-            
+
             {/* Recruitment Routes */}
             <Route path="/recruitment" element={<Recruitment />} />
             <Route path="/recruitment-ideal-talent" element={<RecruitmentIdealTalent />} />
             <Route path="/recruitment-welfare-policy" element={<RecruitmentWelfarePolicy />} />
             <Route path="/recruitment-recruitment-pool-registration" element={<RecruitmentRecruitmentPoolRegistration />} />
-            
+
             {/* News Routes */}
             <Route path="/news" element={<News />} />
             <Route path="/news-announcements" element={<NewsAnnouncements />} />
             <Route path="/news-company-brochure" element={<NewsCompanyBrochure />} />
-            
+
+            {/* Contact Route */}
+            <Route path="/contact" element={<Contact />} />
+
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

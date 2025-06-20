@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -34,7 +33,7 @@ const Footer = () => {
               <li><Link to="/key-services" className="hover:text-blue-200 transition-colors">Services</Link></li>
               <li><Link to="/businesses" className="hover:text-blue-200 transition-colors">Project Experience</Link></li>
               <li><Link to="/core-technologies" className="hover:text-blue-200 transition-colors">Core Technologies</Link></li>
-              <li><Link to="/sustainability" className="hover:text-blue-200 transition-colors">Contact Us</Link></li>
+              <li><Link to="/contact" className="hover:text-blue-200 transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -69,8 +68,8 @@ const Footer = () => {
 
         <div className="border-t border-blue-300 mt-8 pt-6 text-center">
           <p className="text-sm" style={{ fontFamily: 'Arial, sans-serif' }}>
-            © {new Date().getFullYear()} Best Engineers Inc. All rights reserved. | 
-            <Link to="/privacy" className="hover:text-blue-200 ml-2">Privacy Policy</Link> | 
+            © {new Date().getFullYear()} Best Engineers Inc. All rights reserved. |
+            <Link to="/privacy" className="hover:text-blue-200 ml-2">Privacy Policy</Link> |
             <Link to="/terms" className="hover:text-blue-200 ml-2">Terms of Service</Link>
           </p>
         </div>

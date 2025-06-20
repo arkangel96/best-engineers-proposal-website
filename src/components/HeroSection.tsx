@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import { Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const HERO_IMAGE = "/lovable-uploads/6ccc1df5-73a4-4e60-b6f2-b9b5f2118fd2.png";
-const YOUTUBE_VIDEO_ID = "6g9uegIUVx0";
-
 const HeroSection = () => {
   return (
     <section
@@ -43,35 +40,12 @@ const HeroSection = () => {
         }}
       />
       <div className="relative z-20 flex flex-col items-center justify-center w-full max-w-3xl text-center mx-auto">
-        <h1
-          className="font-extrabold hero-title"
-          style={{
-            fontFamily: "'Open Sans','Inter','Poppins',Arial,sans-serif",
-            fontSize: 48,
-            color: "#bfc9d1",
-            textShadow: "0 4px 24px rgba(0,0,0,0.25), 0 1.5px 2px rgba(0,0,0,0.18)",
-            letterSpacing: "-0.01em",
-            lineHeight: 1.08,
-          }}
-        >
-          <span className="hero-title-metallic">
-            Best Engineers Inc
-          </span>
+        <h1 className="text-4xl font-extrabold tracking-tight text-gradient-gold sm:text-5xl md:text-6xl hero-title">
+          Best Engineers Inc
         </h1>
-        <h2
-          className="mt-4 font-medium hero-subtitle"
-          style={{
-            fontFamily: "'Open Sans','Inter','Poppins',Arial,sans-serif",
-            fontSize: 20,
-            color: "#e0e4ea",
-            lineHeight: 1.6,
-            fontWeight: 500,
-            textShadow: "0 2px 12px rgba(0,0,0,0.18)",
-            marginTop: 16,
-          }}
-        >
+        <p className="mt-6 max-w-2xl mx-auto text-lg text-white/90 sm:text-xl md:text-2xl hero-subtitle">
           Innovative engineering solutions for tomorrow's industrial challenges.
-        </h2>
+        </p>
         <div className="flex flex-wrap justify-center gap-x-3 gap-y-2 mt-7 animate-fade-in-up"
           style={{ animationDelay: "0.13s" }}
         >
@@ -126,34 +100,6 @@ const HeroSection = () => {
         }
         .hero-title {
           animation: fadeInUp 0.8s cubic-bezier(.4,0,.2,1) 0.1s both;
-        }
-        .hero-title-metallic {
-          display: inline-block;
-          font-family: 'Open Sans', Arial, sans-serif;
-          font-size: 48px;
-          font-weight: 800;
-          background: linear-gradient(90deg, #e0e4ea 10%, #bfc9d1 40%, #f8f9fa 60%, #bfc9d1 90%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          color: #cfd8dc;
-          text-shadow:
-            0 2px 8px rgba(0,0,0,0.18),
-            0 1.5px 0 #fff,
-            0 0.5px 0 #b0b6bb;
-          letter-spacing: -0.01em;
-          line-height: 1.08;
-          position: relative;
-        }
-        .hero-title-metallic::after {
-          content: '';
-          display: block;
-          width: 60%;
-          height: 2px;
-          margin: 12px auto 0;
-          background: linear-gradient(90deg, #f8f9fa 0%, #bfc9d1 100%);
-          opacity: 0.5;
-          border-radius: 1px;
         }
         .hero-subtitle {
           animation: fadeInUp 0.8s cubic-bezier(.4,0,.2,1) 0.3s both;
